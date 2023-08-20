@@ -41,6 +41,7 @@ try{
 }
 });
 
+//Updates a category by its `id` value
 router.put('/:id', async (req, res) => {
   try{
     const categoryData = await Category.update(req.body, {
@@ -55,14 +56,15 @@ router.put('/:id', async (req, res) => {
       return
     }
   }
-  catch{
+  catch(err){
   res.status(500).json(err);
   }
-  // update a category by its `id` value
+
 });
 
+// Deletes a category by its `id` value
 router.delete('/:id', async (req, res) => {
-  // delete a category by its `id` value
+
   try{
     const categoryData = await Category.destroy({
       where: {

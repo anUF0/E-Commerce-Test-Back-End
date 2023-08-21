@@ -7,7 +7,7 @@ const { Tag, Product, ProductTag } = require('../../models');
 router.get('/', async (req, res) => {
 try{
   const tagData = await Tag.findAll(
-    {include:[{model: Product, through: ProductTag, attributes:['product_name']}]}
+    {include:[{model: Product, through: ProductTag,  attributes:['product_name']}]}
   );
   res.status(200).json(tagData);
 }catch(err){
@@ -75,7 +75,7 @@ router.delete('/:id', async (req, res) => {
   if (!tagData) {
     res.status(404).json({ message: 'Tag Id Not Found' });
     return;
-  }
+  }//WIP Does not work as intended
 
   res.status(200).json(tagData);
   } catch (err) {

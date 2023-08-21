@@ -52,7 +52,7 @@ router.put('/:id', async (req, res) => {
 
   if(!categoryData){
     res.status(404).json({message: 'Category Not Found'});
-    return
+    return //WIP Does not work as intended
   }
   
   res.status(200).json(categoryData);
@@ -72,7 +72,7 @@ router.delete('/:id', async (req, res) => {
     });
     if(!categoryData){
       res.status(404).json({message: 'Category Not Found'});
-      return
+      return;
     }
 
     res.status(200).json(categoryData);
